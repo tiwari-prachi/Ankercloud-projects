@@ -1,0 +1,20 @@
+Open the bucket's Management tab
+S3 console mein leigostorage-prod bucket click karo. Top pe tabs dikhenge — Objects, Properties, Permissions, Metrics, Management. 'Management' tab pe click karo.
+2
+Create a Lifecycle rule
+Management tab mein 'Lifecycle rules' section dikhega. 'Create lifecycle rule' button pe click karo.
+3
+Name the rule and set scope
+Rule name do — jaise 'intelligent-tiering-all-objects'. Scope mein 'Apply to all objects in the bucket' select karo. Confirmation checkbox tick karo jo aayega.
+4
+Select the rule action
+'Lifecycle rule actions' mein scroll karo. 'Move objects between storage classes' checkbox tick karo.
+5
+Choose Intelligent-Tiering and set days
+Storage class transition dropdown mein 'Intelligent-Tiering' select karo. 'Days after object creation' mein 0 daalo — matlab objects upload hote hi automatically tier hone lagenge. (0 allowed hai Intelligent-Tiering ke liye.)
+6
+Save the rule
+Bottom mein 'Create rule' click karo. Rule active ho jaayega. Existing 5.2 TB data bhi is rule ke under aane lagega — AWS next lifecycle evaluation cycle mein apply karega (usually 24 hrs).
+7
+Enable optional archive tiers (recommended)
+Better savings ke liye: bucket ke Properties tab mein jaao → 'Intelligent-Tiering Archive configurations' → 'Create configuration'. Archive Access tier ke liye 90 days set karo, Deep Archive Access ke liye 180 days. Yeh cold data ko aur neeche tier karega (~68% cheaper than Standard).
